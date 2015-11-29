@@ -34,6 +34,9 @@ formatting string, and below is a list of all escape sequences:
   `%a`  | asterisk `*` if there are staged changes
   `%u`  | question mark `*` if there are untracked files
 
+If the current working directory is not under any version control, empty string 
+will be returned.
+
 # Requirements
 
 Python in system path. SQLite3 Python module if you use it for svn or fossil 
