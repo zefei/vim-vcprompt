@@ -539,11 +539,14 @@ def hg(options):
 
     # branch
     if '%b' in options.format:
-        try:
-            fn = os.path.join(options.file, 'branch')
-            branch = open(fn, 'r').readline().strip()
-        except IOError:
-            branch = "default"
+        fns = ['branch', 'bookmarks.current']
+        for fn in fns:
+            try:
+                fn = os.path.join(options.file, fn)
+                branch = open(fn, 'r').readline().strip()
+            except IOError:
+                branch = "default"
+                continue
 
     # modified
     if '%m' in options.format:
